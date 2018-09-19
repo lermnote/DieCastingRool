@@ -1,0 +1,17 @@
+<!--pages/tool/tool.wxml-->
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">压铸小工具</view>
+    <view class="page__desc">为压铸人精心准备的小工具，计算结果仅供参考，请斟酌使用，若有更好的建议请联系我。</view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-cells weui-cells_after-title">
+      <block wx:for="{{tools}}" wx:key="*this">
+        <navigator url="{{item.tool}}/{{item.tool}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__bd">{{item.name}}</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+      </block>
+    </view>
+  </view>
+</view>

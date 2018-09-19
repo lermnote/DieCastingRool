@@ -1,0 +1,31 @@
+{
+  "pages": [
+    "pages/tool/tool",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/tool/stroke/stroke"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#009B91",
+    "navigationBarTitleText": "知会躬行",
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/tool/tool",
+        "text": "小工具",
+        "iconPath": "images/tar-home.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "知识库",
+        "iconPath": "images/collection.png",
+        "backgroundColor": "#009B91"
+      }
+    ],
+    "selectedColor": "#589ad5"
+  },
+  "debug": true
+}

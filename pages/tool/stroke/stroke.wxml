@@ -1,0 +1,63 @@
+<!--components/stroke.wxml-->
+<view class="page__hd">
+  <view class="page__title">行程计算</view>
+  <view class="page__desc">高速行程及慢压射计算</view>
+</view>
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_select">
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <view class="weui-label">产品材料</view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker name="materials" bindchange="bindMaterialChange" value="{{materialIndex}}" range="{{materials}}">
+          <view class="weui-select weui-select_in-select-after">{{materials[materialIndex]}}</view>
+        </picker>
+      </view>
+    </view>
+    <block wx:for="{{list}}" wx:key="*this" wx:for-index="idx">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">{{item.label}}</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="{{item.name}}" type='text' class="weui-input" placeholder="{{item.placeholder}}" confirm-type="{{idx==(index-1)?'done':'next'}}" focus="{{idx==0 ? 'true' : 'false'}}" cursor-spacing='20'/>
+        </view>
+        <view class="weui-cell__ft">
+          <text type="warn" size="23" color="#E64340">{{item.unit}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="weui-panel" hidden="{{result ? false : true}}">
+    <view class="weui-panel__hd">计算结果</view>
+    <view class="weui-panel__bd">
+      <view class="weui-cells weui-cells_in-small-appmsg">
+      <block wx:for="{{result}}" wx:key="*this">
+        <view class="weui-cell weui-cell_access">
+          <view class="weui-cell__bd weui-cell_primary">
+            <view>高速行程</view>
+          </view>
+          <view style="margin-right:18rpx">{{item.stroke}}</view>
+          <view class="weui-cell__ft">
+            <text size="23" color="#E64340">mm</text>
+          </view>
+        </view>
+        </block>
+        <view class="weui-cell weui-cell_access">
+          <view class="weui-cell__bd weui-cell_primary">
+            <view>慢压射行程</view>
+          </view>
+          <view style="margin-right:18rpx">{{lowStroke}}</view>
+          <view class="weui-cell__ft">
+            <text size="23" color="#E64340">mm</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="weui-btn-area">
+    <button class="weui-btn weui-btn_costom" formType="submit">立即计算</button>
+    <button class="weui-btn weui-btn_costom" formType="reset">重新输入</button>
+  </view>
+</form>

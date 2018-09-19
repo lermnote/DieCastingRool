@@ -10,39 +10,52 @@ Page({
     list: [
       {
         id: 0,
+        focus: false,
         label: "产品重量",
         name: "weight",
         placeholder: "带渣包重量",
-        unit: "g"
+        content: "",
+        unit: "g",
       },
       {
         id: 1,
+        focus: false,
         label: "料筒直径",
         name: "diameter",
         placeholder: "料筒内径",
+        content: "",
         unit: "mm"
       },
       {
         id: 2,
+        focus: false,
         label: "空打行程",
         name: "validstroke",
         placeholder: "有效长度",
+        content: "",
         unit: "mm"
-      }
-    ],
-    result:[
-      {
-        label:'高速行程',
-        stroke:'',
-        unit:'mm'
-      },
-      {
-        label: '满压射行程',
-        stroke: '',
-        unit: 'mm'
       }
     ]
   },
+  confirmBtnClicked: function (event) {
+    console.log(event)
+    console.log(event.detail)
+    let that = this
+    console.log(that.data.list)
+    let tempArray = that.data.list
+    let i = Number( event.target.id);
+    if (i < tempArray.length) {
+      tempArray[i].focus = false
+      if (i !== tempArray.length - 1) {
+        tempArray[i+1].focus = true
+        console.log(tempArray)
+      }
+    }
+    that.setData({
+      list: tempArray
+    })
+  },
+
   bindMaterialChange: function (e) {
     let that = this
     that.setData({
@@ -70,13 +83,10 @@ Page({
     console.log(materialVal, a, weightVal, diaVal, tripVal)
     let lh = Math.round((4 * weightVal) / (a * Math.PI * diaVal * diaVal) * 1000);
     let l = Math.round(tripVal - lh - lb);
-    that.data.result[0].stroke= lh
-    that.data.result[1].stroke = l
-    // that.setData({
-
-    //   stroke: lh,
-    //   lowStroke: l,
-    // })
+    that.setData({
+      highStroke: lh,
+      lowStroke: l,
+    })
   },
   formReset: function (e) {
     let that = this

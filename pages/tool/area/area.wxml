@@ -1,17 +1,17 @@
-<!--components/stroke.wxml-->
+<!--pages/tool/area.wxml-->
 <view class="page__hd">
-  <view class="page__title">行程估算</view>
-  <view class="page__desc">高速行程及慢压射行程计算</view>
+  <view class="page__title">投影面积估算</view>
+  <view class="page__desc">根据产品面积估算投影面积</view>
 </view>
 <form bindsubmit="formSubmit" bindreset="formReset">
   <view class="weui-cells weui-cells_after-title">
-    <view class="weui-cell weui-cell_select">
+   <view class="weui-cell weui-cell_select">
       <view class="weui-cell__hd weui-cell__hd_in-select-after">
-        <view class="weui-label">产品材料</view>
+        <view class="weui-label">模穴数量</view>
       </view>
       <view class="weui-cell__bd">
-        <picker name="materials" bindchange="bindMaterialChange" value="{{materialIndex}}" range="{{materials}}">
-          <view class="weui-select weui-select_in-select-after">{{materials[materialIndex]}}</view>
+        <picker name="numberOfCasting" bindchange="bindMaterialChange" value="{{numberIndex}}" range="{{numberOfCasting}}">
+          <view class="weui-select weui-select_in-select-after">{{numberOfCasting[numberIndex]}}</view>
         </picker>
       </view>
     </view>
@@ -21,7 +21,7 @@
           <view class="weui-label">{{item.label}}</view>
         </view>
         <view class="weui-cell__bd">
-          <input name="{{item.name}}" type="digit" id="{{idx}}" class="weui-input" placeholder="{{item.placeholder}}" confirm-type="{{idx==(index-1)?'done':'next'}}" confirm-hold="false" focus="{{item.focus}}" bindconfirm="confirmBtnClicked" cursor-spacing='20'/>
+          <input name="{{item.name}}" type="digit" id="{{idx}}" class="weui-input" placeholder="{{item.placeholder}}" cursor-spacing='20' />
         </view>
         <view class="weui-cell__ft">
           <text type="warn" size="23" color="#E64340">{{item.unit}}</text>
@@ -29,26 +29,17 @@
       </view>
     </block>
   </view>
-  <view class="weui-panel" hidden="{{highStroke&lowStroke ? false : true}}">
+  <view class="weui-panel" hidden="{{projectArea ? false : true}}">
     <view class="weui-panel__hd">计算结果</view>
     <view class="weui-panel__bd">
       <view class="weui-cells weui-cells_in-small-appmsg">
         <view class="weui-cell weui-cell_access">
           <view class="weui-cell__bd weui-cell_primary">
-            <view>高速行程</view>
+            <view>投影面积</view>
           </view>
-          <view style="margin-right:18rpx">{{highStroke}}</view>
+          <view style="margin-right:18rpx">{{projectArea}}</view>
           <view class="weui-cell__ft">
-            <text size="23" color="#E64340">mm</text>
-          </view>
-        </view>
-        <view class="weui-cell weui-cell_access">
-          <view class="weui-cell__bd weui-cell_primary">
-            <view>慢压射行程</view>
-          </view>
-          <view style="margin-right:18rpx">{{lowStroke}}</view>
-          <view class="weui-cell__ft">
-            <text size="23" color="#E64340">mm</text>
+            <text size="23" color="#E64340">cm²</text>
           </view>
         </view>
       </view>

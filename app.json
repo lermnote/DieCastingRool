@@ -3,7 +3,8 @@
     "pages/tool/tool",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/tool/stroke/stroke"
+    "pages/tool/stroke/stroke",
+    "pages/tool/area/area"
   ],
   "window": {
     "backgroundTextStyle": "light",

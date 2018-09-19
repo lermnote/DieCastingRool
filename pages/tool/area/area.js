@@ -17,9 +17,9 @@ Page({
       },
       {
         id: 1,
-        label: "料筒直径",
+        label: "冲头直径",
         name: "diameter",
-        placeholder: "料筒内径",
+        placeholder: "冲头直径",
         unit: "mm"
       }
     ]

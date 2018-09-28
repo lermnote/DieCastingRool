@@ -83,10 +83,12 @@ Page({
     console.log(materialVal, a, weightVal, diaVal, tripVal)
     let lh = Math.round((4 * weightVal) / (a * Math.PI * diaVal * diaVal) * 1000);
     let l = Math.round(tripVal - lh - lb);
+    console.log(lh,l)
     that.setData({
       highStroke: lh,
       lowStroke: l,
     })
+    console.log(that.data.highStroke,that.data.lowStroke)
   },
   formReset: function (e) {
     let that = this

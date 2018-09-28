@@ -5,8 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    numberOfCasting: [1, 2,3,4,5,6],
-    numberIndex:0,
+    numberOfCasting: [1, 2, 3, 4, 5, 6],
+    numberIndex: 0,
     list: [
       {
         id: 0,
@@ -32,12 +32,13 @@ Page({
   },
   formSubmit: function (e) {
     let that = this
-    let numberOfCasting = e.detail.value.numberOfCasting+1
-    let A1 =Number( e.detail.value.A1); 
+    let numberOfCasting = Number(e.detail.value.numberOfCasting) + 1
+    console.log (typeof numberOfCasting)
+    let A1 = Number(e.detail.value.A1);
     let diaVal = e.detail.value.diameter;
     let A2 = 0.12 * A1;
     let A3 = 0.21 * A1;
-    let biscuitArea = (Math.PI * diaVal * diaVal) /( 4*100)
+    let biscuitArea = (Math.PI * diaVal * diaVal) / (4 * 100)
     let S = A1 * numberOfCasting + A2 + A3 + biscuitArea
     that.setData({
       projectArea: S.toFixed(2)
@@ -46,7 +47,7 @@ Page({
   formReset: function (e) {
     let that = this
     that.setData({
-      projectArea:""
+      projectArea: ""
     })
   },
 

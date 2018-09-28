@@ -1,24 +1,10 @@
-// pages/tool/tool.js
+// pages/tool/technics/technics.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tools: [
-      {
-        name: "行程计算",
-        tool: 'stroke'
-      },
-      {
-        name: "投影面积",
-        tool: "area"
-      },
-      {
-        name: "工艺参数评估",
-        tool: "technics"
-      }
-    ],
 
   },
 
